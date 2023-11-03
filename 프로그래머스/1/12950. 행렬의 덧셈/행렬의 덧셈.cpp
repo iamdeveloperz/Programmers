@@ -4,15 +4,11 @@
 using namespace std;
 
 vector<vector<int>> solution(vector<vector<int>> arr1, vector<vector<int>> arr2) {
-    vector<vector<int>> answer;
-    int rowLen = (int)arr1.size();
-    int colLen = (int)arr1[0].size();
+    vector<vector<int>> answer = arr1;
     
-    for(int w = 0; w < rowLen; ++w) {
-        vector<int> tempVec;
-        for(int h = 0; h < colLen; ++h)
-            tempVec.push_back(arr1[w][h] + arr2[w][h]);
-        answer.push_back(tempVec);
+    for(int row = 0; row < arr1.size(); ++row) {
+        for(int col = 0; col < arr1[0].size(); ++col)
+            answer[row][col] = arr1[row][col] + arr2[row][col];
     }
     
     return answer;
